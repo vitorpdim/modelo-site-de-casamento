@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha a Data e Hora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button class="back-button" onclick="voltar()">&#8592; Voltar</button>
+        
+        <div id="card-data" class="card">
+            <p class="step">1 / 2</p>
+            <p class="question">E quando será o casamento?</p>
+            <input type="date" id="wedding-date" class="input-field">
+            <button class="ok-button" onclick="nextStep()">OK</button>
+        </div>
+        
+        <div id="card-time" class="card hidden">
+            <p class="step">2 / 2</p>
+            <p class="question">E que horas o casamento começa?</p>
+            <input type="time" id="wedding-time" class="input-field">
+            <button class="ok-button" onclick="showDetails()">OK</button>
+        </div>
+        
+        <div id="details-card" class="card hidden">
+            <p class="question">Detalhes do casamento</p>
+            <p id="details"></p>
+        </div>
+    </div>
+
+    <script>
+        function nextStep() {
+            document.getElementById("card-data").classList.add("hidden");
+            document.getElementById("card-time").classList.remove("hidden");
+        }
+
+        function showDetails() {
+            let date = document.getElementById("wedding-date").value;
+            let time = document.getElementById("wedding-time").value;
+            let detailsText = `Casamento marcado para ${date} às ${time}.`;
+            
+            document.getElementById("details").innerText = detailsText;
+            document.getElementById("card-time").classList.add("hidden");
+            document.getElementById("details-card").classList.remove("hidden");
+        }
+
+        function voltar() {
+            document.getElementById("card-data").classList.remove("hidden");
+            document.getElementById("card-time").classList.add("hidden");
+            document.getElementById("details-card").classList.add("hidden");
+        }
+    </script>
+</body>
+</html>

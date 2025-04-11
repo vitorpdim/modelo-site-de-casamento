@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados do Casal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="formulario">
+            <h1>Dados do Casal</h1>
+            <div class="campo">
+                <label>Nome</label>
+                <input type="text" id="nome1">
+                <label>Sobrenome (Opcional)</label>
+                <input type="text" id="sobrenome1">
+            </div>
+            <div class="campo">
+                <label>Nome</label>
+                <input type="text" id="nome2">
+                <label>Sobrenome (Opcional)</label>
+                <input type="text" id="sobrenome2">
+            </div>
+            <div class="campo">
+                <label>Separador</label>
+                <select id="separador">
+                    <option value="&">&</option>
+                    <option value="e">e</option>
+                </select>
+            </div>
+            <button onclick="salvarDados()">Salvar</button>
+        </div>
+        <div class="card" id="card-info">
+            <h2>Informações do Casal</h2>
+            <p id="info-casal">Nenhum dado inserido.</p>
+        </div>
+    </div>
+    <script>
+        function salvarDados() {
+            const nome1 = document.getElementById('nome1').value;
+            const sobrenome1 = document.getElementById('sobrenome1').value;
+            const nome2 = document.getElementById('nome2').value;
+            const sobrenome2 = document.getElementById('sobrenome2').value;
+            const separador = document.getElementById('separador').value;
+
+            if (nome1 && nome2) {
+                document.getElementById('info-casal').innerText = `${nome1} ${sobrenome1} ${separador} ${nome2} ${sobrenome2}`;
+            } else {
+                document.getElementById('info-casal').innerText = "Por favor, preencha os nomes.";
+            }
+        }
+    </script>
+</body>
+</html>
