@@ -1,102 +1,70 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #ddd2eb;
-    text-align: center;
+    background: rgba(180, 141, 177, 9.3);
+background: linear-gradient(90deg, rgba(180, 141, 177, 0.85) 5%, rgba(109, 110, 207, 0.98) 50%);
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    padding: 20px;
 }
 
-.container {
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 40px);
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
+    margin: auto;
 }
 
 .card {
-    background-color: white;
-    padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.card h2 {
-    color: #4a1746;
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-button {
-    width: auto;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    background-color: #7084aa;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-    margin-top: 10px;
+    width: 100%;
 }
 
-button:hover {
-    background-color: #6d80d6;
+.card-body {
+    padding: 2rem;
+}
+
+.card-title {
+    color: #4a1746;
+    font-weight: bold;
+}
+.animated-card {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .back-button {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background: none;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    color: #000000;
-    padding: 5px 10px;
-    font-weight: 700;
-    font-size: large;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: #4a1746;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
 }
 
 .back-button:hover {
-    color: #000000;
-    transform: scale(1.02);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #4a1746;
 }
-
-.hidden {
-    display: none;
-}
-
-.date-input {
-    width: 95%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #8c79c0;
-    font-size: 16px;
-    text-align: center;
-    background-color: #fffaf3;
-}
-
-.details-card {
-    background-color: white;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #8c60c5;
-}
-
-.details-card span.date {
-    display: block;
-    font-size: 16px;
-    color: #92b0d6;
-    font-weight: normal;
+.details-text {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 1.5rem;
 }

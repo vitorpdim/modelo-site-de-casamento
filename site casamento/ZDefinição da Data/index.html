@@ -3,55 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escolha a Data e Hora</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Escolha a data e hora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <button class="back-button" onclick="voltar()">&#8592; Voltar</button>
+    <div class="main-container">
         
-        <div id="card-data" class="card">
-            <p class="step">1 / 2</p>
-            <p class="question">E quando será o casamento?</p>
-            <input type="date" id="wedding-date" class="input-field">
-            <button class="ok-button" onclick="nextStep()">OK</button>
+        <a href="../html/index.html" class="back-button">&#8592; Voltar para o Início</a>
+        
+        <div id="card-data" class="card shadow-lg text-center animated-card">
+            <div class="card-body">
+                <span class="badge bg-primary-subtle border border-primary-subtle text-primary-emphasis rounded-pill mb-3">PASSO 1 DE 2</span>
+                <h2 class="card-title">Quando será o casamento?</h2>
+                <input type="date" id="wedding-date" class="form-control form-control-lg my-4">
+                <button class="btn btn-primary btn-lg w-100" onclick="nextStep()">Próximo</button>
+            </div>
         </div>
         
-        <div id="card-time" class="card hidden">
-            <p class="step">2 / 2</p>
-            <p class="question">E que horas o casamento começa?</p>
-            <input type="time" id="wedding-time" class="input-field">
-            <button class="ok-button" onclick="showDetails()">OK</button>
+        <div id="card-time" class="card shadow-lg text-center animated-card d-none">
+            <div class="card-body">
+                <span class="badge bg-primary-subtle border border-primary-subtle text-primary-emphasis rounded-pill mb-3">PASSO 2 DE 2</span>
+                <h2 class="card-title">E que horas o casamento começa?</h2>
+                <input type="time" id="wedding-time" class="form-control form-control-lg my-4">
+                <button class="btn btn-primary btn-lg w-100" onclick="showDetails()">Finalizar</button>
+            </div>
         </div>
         
-        <div id="details-card" class="card hidden">
-            <p class="question">Detalhes do casamento</p>
-            <p id="details"></p>
+        <div id="details-card" class="card shadow-lg text-center animated-card d-none">
+            <div class="card-body">
+                <h2 class="card-title text-success">Data Definida!</h2>
+                <p class="details-text" id="details"></p>
+                <button class="btn btn-outline-secondary mt-3" onclick="voltar()">Escolher Outra Data</button>
+            </div>
         </div>
+
     </div>
 
-    <script>
-        function nextStep() {
-            document.getElementById("card-data").classList.add("hidden");
-            document.getElementById("card-time").classList.remove("hidden");
-        }
-
-        function showDetails() {
-            let date = document.getElementById("wedding-date").value;
-            let time = document.getElementById("wedding-time").value;
-            let detailsText = `Casamento marcado para ${date} às ${time}.`;
-            
-            document.getElementById("details").innerText = detailsText;
-            document.getElementById("card-time").classList.add("hidden");
-            document.getElementById("details-card").classList.remove("hidden");
-        }
-
-        function voltar() {
-            document.getElementById("card-data").classList.remove("hidden");
-            document.getElementById("card-time").classList.add("hidden");
-            document.getElementById("details-card").classList.add("hidden");
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script> 
 </body>
 </html>
